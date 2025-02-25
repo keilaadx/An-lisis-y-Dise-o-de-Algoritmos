@@ -1,0 +1,32 @@
+#include <stdio.h>
+
+// Función para invertir un número
+int invertirNumero(int num) {
+    int inverso = 0;
+    while (num != 0) {
+        int digito = num % 10;
+        inverso = inverso * 10 + digito;
+        num = num / 10;
+    }
+    return inverso;
+}
+
+// Función para verificar si un número es palíndromo
+int esPalindromo(int num) {
+    if (num < 0) return 0;
+    return num == invertirNumero(num);
+}
+
+int main() {
+    int num;
+    printf("Ingrese el numero: ");
+    scanf("%d", &num);
+    
+    if (esPalindromo(num)) {
+        printf("\nEl numero %d es PALINDROMO\n", num);
+    } else {
+        printf("\nEl numero %d NO ES PALINDROMO\n", num);
+    }
+    
+    return 0;
+}
